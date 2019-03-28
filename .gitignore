@@ -1,2 +1,10 @@
-node_modules
+## NPM ##
+npm
+npm-debug.log
+node_modules/
+
+## Mac files ##
 .DS_Store
+
+# Coverage directory used by testing tools
+tests/coverage
