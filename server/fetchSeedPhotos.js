@@ -4,17 +4,19 @@ const fs = require('fs');
 const photoSource = 'https://loremflickr.com/956/640/house';
 let pictureCount = 1;
 
-const download = function fetchPhotos(uri, filepath, callback) {
+function fetchPhotos(uri, filepath, callback) {
   if (pictureCount <= 100) {
-    request(uri).pipe(fs.createWriteStream(filepath))
+    request(uri)
+      .on('error', err => console.log(err))
+      .pipe(fs.createWriteStream(filepath))
       .on('close', callback);
   }
-};
+}
 
-const downloadCallback = function fetchPhotosCallback() {
+function fetchPhotosCallback() {
   console.log('done');
   pictureCount += 1;
-  download(photoSource, `./seedPhotos/img${pictureCount}.jpg`, downloadCallback);
-};
+  fetchPhotos(photoSource, `./seedPhotos/img${pictureCount}.jpg`, fetchPhotosCallback);
+}
 
-download(photoSource, `./seedPhotos/img${pictureCount}.jpg`, downloadCallback); // kick off seed photo fetch
+fetchPhotos(photoSource, `./seedPhotos/img${pictureCount}.jpg`, fetchPhotosCallback); // kick off seed photo fetch
