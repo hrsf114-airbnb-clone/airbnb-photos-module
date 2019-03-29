@@ -5,11 +5,11 @@ const room = require('../index.js');
 mongoose.pluralize(null); // don't pluralize collection name when storing
 
 function createPhotoDocuments(roomId) {
-  const photoCount = Math.ceil(Math.random() * 20);
+  const photoCount = Math.floor(Math.random() * 20) + 1;
   const photoDocuments = [];
 
   for (let j = 1; j <= photoCount; j += 1) {
-    const imageNum = Math.ceil(Math.random() * 100);
+    const imageNum = Math.floor(Math.random() * 100) + 1;
     const photoDocument = {
       photoId: `${roomId}_photo_${j}`,
       description: faker.lorem.sentence(),
