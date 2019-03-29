@@ -15,7 +15,8 @@
     "morgan": "^1.9.1",
     "nodemon": "^1.18.10",
     "react": "^16.8.5",
-    "react-dom": "^16.8.5"
+    "react-dom": "^16.8.5",
+    "request": "^2.88.0"
   },
   "devDependencies": {
     "@babel/core": "^7.4.0",
@@ -44,9 +45,16 @@
     "verbose": true,
     "collectCoverage": true,
     "coverageDirectory": "<rootDir>/tests/coverage",
-    "moduleFileExtensions": ["js", "jsx"],
-    "testPathIgnorePatterns": ["<rootDir>/node_modules/"],
-    "testMatch": ["**/tests/*.test.js?(x)"],
+    "moduleFileExtensions": [
+      "js",
+      "jsx"
+    ],
+    "testPathIgnorePatterns": [
+      "<rootDir>/node_modules/"
+    ],
+    "testMatch": [
+      "**/tests/*.test.js?(x)"
+    ],
     "setupFiles": [
       "<rootDir>/tests/setup.js"
     ]

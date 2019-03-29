@@ -8,3 +8,6 @@ node_modules/
 
 # Coverage directory used by testing tools
 tests/coverage
+
+## Seed Data ##
+server/seedPhotos
