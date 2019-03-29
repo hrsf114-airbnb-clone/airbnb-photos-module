@@ -10,4 +10,4 @@ node_modules/
 tests/coverage
 
 ## Seed Data ##
-server/seedPhotos
+database/seed/seedPhotos
