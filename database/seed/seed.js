@@ -33,7 +33,7 @@ function createRooms() {
   }
 
   models.Room.create(roomPhotos)
-    .catch(err => console.error(err));
+    .then(() => db.close());
 }
 
 createRooms();
