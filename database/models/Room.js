@@ -9,6 +9,4 @@ const roomSchema = new mongoose.Schema({
 
 const Room = mongoose.model('Room', roomSchema);
 
-Room.count().exec((err, count) => console.log(count));
-
 module.exports = Room;
