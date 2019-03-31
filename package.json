@@ -6,6 +6,7 @@
   "license": "",
   "scripts": {
     "start": "nodemon server/index.js",
+    "seed": "node database/seed/seed.js",
     "react-dev": "webpack -d --watch",
     "test": "jest",
     "test:coverage": "jest --coverage --colors"
