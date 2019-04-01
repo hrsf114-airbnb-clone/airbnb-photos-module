@@ -1,6 +1,6 @@
 const faker = require('faker');
 const db = require('../db.js'); // start db connection
-const models = require('../models/index.js');
+const model = require('../models/Room.js');
 
 
 function createPhotos(roomNum) {
@@ -32,7 +32,7 @@ function createRooms() {
     roomPhotos.push(...photos);
   }
 
-  models.Room.create(roomPhotos)
+  model.Room.create(roomPhotos)
     .then(() => db.close());
 }
 

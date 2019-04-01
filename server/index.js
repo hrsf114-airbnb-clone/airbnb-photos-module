@@ -1,11 +1,6 @@
-const express = require('express');
-const morgan = require('morgan');
-const path = require('path');
+const db = require('../database/db.js'); // start db connection
+const app = require('./app.js');
 
-const app = express();
 const PORT = 3000;
-
-app.use(morgan('combined'));
-app.use(express.static(path.join(__dirname, '../client/dist')));
 
 app.listen(PORT, () => console.log(`Listening on port ${PORT}`));
