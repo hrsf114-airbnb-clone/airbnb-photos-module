@@ -9,4 +9,11 @@ const roomSchema = new mongoose.Schema({
 
 const Room = mongoose.model('Room', roomSchema);
 
-module.exports = Room;
+function getRoomPhotos(id, callback) {
+  Room.find()
+    .where('roomNum').equals(id)
+    .sort('photoNum')
+    .exec(callback);
+}
+
+module.exports = { Room, getRoomPhotos };
