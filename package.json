@@ -41,6 +41,7 @@
     "jest-cli": "^24.5.0",
     "react-test-renderer": "^16.8.5",
     "style-loader": "^0.23.1",
+    "supertest": "^4.0.2",
     "webpack": "^4.29.6",
     "webpack-cli": "^3.3.0"
   },
@@ -60,6 +61,7 @@
     ],
     "setupFiles": [
       "<rootDir>/tests/setup.js"
-    ]
+    ],
+    "testEnvironment": "node"
   }
 }
