@@ -1,0 +1,33 @@
+
+
+.container {
+  display: flex;
+  height: 592px;
+  flex-direction: row;
+  align-items: stretch;
+  background-size: auto;
+  background-color: black;
+  border: 1px solid red;
+
+}
+.main {
+  background-color: black;
+  color: #484848;
+  flex: 2 0 auto;
+  border: 1px solid #fff;
+
+}
+
+.right {
+  display: flex;
+  flex: 1 0 auto;
+  flex-flow: column;
+  align-items: stretch;
+  fill: #484848;
+  background-color: #000000;
+}
+.right > div {
+  border: 1px solid #fff;
+  background-color: green;
+  flex: 1 0 auto;
+}
