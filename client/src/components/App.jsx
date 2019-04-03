@@ -29,20 +29,44 @@ class App extends React.Component {
 
   renderView() {
     const { photos, hasMounted } = this.state;
-    const photosToShow = photos.slice(0, 5);
 
     if (hasMounted) {
-      return (
-        <div className="container">
-          <Photo className="main" photo={photosToShow[0]} />
-          <div className="right">
-            {photosToShow.slice(1, 3).map(photo => <Photo className="secondary" photo={photo} />)}
+      if (photos.length >= 4) {
+        return (
+          <div className="container">
+            <div className="left">
+              <Photo photo={photos[0]} />
+            </div>
+            <div className="right">
+              {photos.slice(1, 3).map(photo => <Photo key={photo.photoNum} photo={photo} />)}
+            </div>
+            <div className="right">
+              {photos.slice(3, 5).map(photo => <Photo key={photo.photoNum} photo={photo} />)}
+            </div>
           </div>
-          <div className="right">
-            {photosToShow.slice(3, 5).map(photo => <Photo className="secondary" photo={photo} />)}
+        );
+      }
+      if (photos.length >= 2) {
+        return (
+          <div className="container">
+            <div className="left">
+              <Photo photo={photos[0]} />
+            </div>
+            <div className="right">
+              {photos.slice(1, 3).map(photo => <Photo key={photo.photoNum} photo={photo} />)}
+            </div>
           </div>
-        </div>
-      );
+        );
+      }
+      if (photos.length === 1) {
+        return (
+          <div className="container">
+            <div className="left">
+              <Photo photo={photos[0]} />
+            </div>
+          </div>
+        );
+      }
     }
     return 'Loading';
   }
