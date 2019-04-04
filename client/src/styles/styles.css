@@ -36,7 +36,7 @@ img {
   flex: 1 1 0;
   max-width: 100%;
   max-height: 100%;
-  transition-property: -ms-transform, -webkit-transform;
+  transition-property: transform, opacity, -ms-transform, -webkit-transform;
   transition-duration: 450ms, 450ms, 450ms;
   transition-timing-function: cubic-bezier(0.645, 0.045, 0.355, 1), cubic-bezier(0.645, 0.045, 0.355, 1), cubic-bezier(0.645, 0.045, 0.355, 1);
   transition-delay: 0s, 0s, 0s;
@@ -46,4 +46,9 @@ img {
 img:hover {
   transform: scale(1.05);
   cursor: pointer;
+}
+
+.container:hover > div > div > img:not(:hover) {
+  opacity: 0.7;
+ 
 }
