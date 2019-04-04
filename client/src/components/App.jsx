@@ -1,5 +1,7 @@
 import React, { Fragment } from 'react';
 import Photo from './Photo.jsx';
+import MainView from './MainView.jsx'
+import CarouselView from './CarouselView.jsx'
 
 class App extends React.Component {
   constructor(props) {
@@ -7,8 +9,8 @@ class App extends React.Component {
     this.state = {
       currentRoom: null,
       photos: [],
-      view: 'main',
       hasMounted: false,
+      showCarousel: false,
     };
   }
 
@@ -29,45 +31,13 @@ class App extends React.Component {
   }
 
   renderView() {
-    const { photos, hasMounted } = this.state;
+    const { photos, hasMounted, showCarousel } = this.state;
 
     if (hasMounted) {
-      if (photos.length >= 4) {
-        return (
-          <div className="container">
-            <div className="left">
-              <Photo photo={photos[0]} />
-            </div>
-            <div className="right">
-              {photos.slice(1, 3).map(photo => <Photo key={photo.photoNum} photo={photo} />)}
-            </div>
-            <div className="right">
-              {photos.slice(3, 5).map(photo => <Photo key={photo.photoNum} photo={photo} />)}
-            </div>
-          </div>
-        );
+      if (!showCarousel) {
+        return <MainView photos={photos} />;
       }
-      if (photos.length >= 2) {
-        return (
-          <div className="container">
-            <div className="left">
-              <Photo photo={photos[0]} />
-            </div>
-            <div className="right">
-              {photos.slice(1, 3).map(photo => <Photo key={photo.photoNum} photo={photo} />)}
-            </div>
-          </div>
-        );
-      }
-      if (photos.length === 1) {
-        return (
-          <div className="container">
-            <div className="left">
-              <Photo photo={photos[0]} />
-            </div>
-          </div>
-        );
-      }
+      return <CarouselView photos={photos} />;
     }
     return 'Loading';
   }
