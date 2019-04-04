@@ -1,26 +1,37 @@
 body {
   margin: 0;
 }
+
 .container {
   display: flex;
   height: 592px;
   flex-direction: row;
   background-color: #484848;
 }
+
 .left {
   display: flex;
   flex: 2 1 0;
   margin: 0.5px;
+  overflow: hidden;
 }
+
 .right {
   display: flex;
   flex-direction: column;
   flex: 1 1 0;
   margin: 0.5px;
+  overflow: hidden;
 }
+
+.main,
 .secondary {
+  display: flex;
   margin: 0.5px;
+  overflow: hidden;
+  flex: 1
 }
+
 img {
   flex: 1 1 0;
   max-width: 100%;
@@ -31,6 +42,7 @@ img {
   transition-delay: 0s, 0s, 0s;
 
 }
+
 img:hover {
   transform: scale(1.05);
   cursor: pointer;

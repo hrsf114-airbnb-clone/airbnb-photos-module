@@ -1,7 +1,9 @@
 import React from 'react';
 
 const Photo = ({ photo }) => (
-  <img src={photo.url} alt={photo.description} className={photo.photoNum === 1 ? 'main' : 'secondary'} />
+  <div className={photo.photoNum === 1 ? 'main' : 'secondary'}>
+    <img src={photo.url} alt={photo.description} />
+  </div>
 );
 
 export default Photo;
