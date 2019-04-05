@@ -9,13 +9,7 @@ app.use(morgan('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
-app.get('/rooms/:id', (req, res) => {
-  res.sendFile(path.join(__dirname, '../client/dist/index.html'));
-});
-
-app.get('/bundle', (req, res) => {
-  res.sendFile(path.join(__dirname, '../client/dist/bundle.js'));
-});
+app.use('/rooms/:id', express.static('client/dist'));
 
 app.get('/api/rooms/:id', (req, res) => {
   const { id } = req.params;
