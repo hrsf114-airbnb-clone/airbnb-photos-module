@@ -45,6 +45,7 @@ class App extends React.Component {
     } else {
       const { name } = e.target;
       if (name === 'return') {
+        document.body.style.backgroundColor = 'white';
         this.setState(currentState => ({ showCarousel: !currentState.showCarousel }));
       } else {
         const currentPhotoIdx = currentPhoto.photoNum - 1;

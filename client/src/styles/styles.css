@@ -1,14 +1,15 @@
 body {
   margin: 0;
   font-family: Circular, -apple-system, BlinkMacSystemFont, Roboto, Helvetica Neue, sans-serif;
+  color: white;
   font-size: 14px;
   line-height: 1.43;
   -webkit-font-smoothing: antialiased;
 }
 
-.container {
+.main-view-container {
   display: flex;
-  height: 592px;
+  max-height: 592px;
   flex-direction: row;
   background-color: #484848;
 }
@@ -44,7 +45,6 @@ img {
   transition-duration: 450ms, 450ms, 450ms;
   transition-timing-function: cubic-bezier(0.645, 0.045, 0.355, 1), cubic-bezier(0.645, 0.045, 0.355, 1), cubic-bezier(0.645, 0.045, 0.355, 1);
   transition-delay: 0s, 0s, 0s;
-
 }
 
 img:hover {
@@ -59,31 +59,35 @@ img:hover {
 .carousel-page-container {
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
+  align-items: space-between;
 }
 
 .return-container {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   justify-content: flex-end;
   align-items: flex-start;
   padding: 10px;
-  flex: 1 1 0;
+  padding-bottom: 20px;
 }
 .main-content-container {
   display:flex;
   flex-direction: column;
-  align-items: center;
-  flex: 4 1 0;
-
 }
 
 .main-photo-nav-container {
-  display:flex;
+  display: flex;
   flex-direction: row;
   justify-content: space-between;
   align-items: stretch;
-  flex: 3 1 0;
+
+}
+
+.nav-button-container {
+  display: flex;
+}
+button:hover {
+  cursor: pointer;
 }
 
 figcaption {
@@ -91,22 +95,40 @@ figcaption {
   flex-direction: column;
   justify-content: center;
   flex: 1 1 0;
-  max-width: 700px;
+  max-width: 955px;
+  align-self: center;
 }
-.fig-caption-divider {
+
+.fig-caption-space {
   margin-bottom: 24px;
+  display: flex;
+  flex-direction: column;
 }
+
+.fig-caption-top {
+  margin-bottom: 12px;
+}
+
 .photo-details {
   display: flex;
-  flex-flow: row nowrap;
+  flex-direction: row;
   justify-content: space-between;
+}
+
+.thumbnail-view-container {
+  overflow: hidden;
 }
 
 .thumbnail-view {
   display: flex;
   flex-direction: row;
   align-content: space-between;
-  width: 
+  transform: matrix(1, 0, 0, 1, 0, 0);
+  transition-delay: 0s, 0s, 0s;
+  transition-duration: 0.3s, 0.3s, 0.3s;
+  transition-property: transform;
+  transition-timing-function: ease-out, ease-out, ease-out;
+  
 }
 
 li {

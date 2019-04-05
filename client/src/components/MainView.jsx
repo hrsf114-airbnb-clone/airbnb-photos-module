@@ -4,7 +4,7 @@ import Photo from './Photo.jsx';
 function MainView({ photos, handleClick }) {
   if (photos.length >= 4) {
     return (
-      <div className="container">
+      <div className="main-view-container">
         <div className="left">
           <Photo photo={photos[0]} handleClick={handleClick} />
         </div>
@@ -19,7 +19,7 @@ function MainView({ photos, handleClick }) {
   }
   if (photos.length >= 2) {
     return (
-      <div className="container">
+      <div className="main-view-container">
         <div className="left">
           <Photo photo={photos[0]} handleClick={handleClick} />
         </div>
@@ -31,7 +31,7 @@ function MainView({ photos, handleClick }) {
   }
   if (photos.length === 1) {
     return (
-      <div className="container">
+      <div className="main-view-container">
         <div className="left">
           <Photo photo={photos[0]} handleClick={handleClick} />
         </div>

@@ -10,37 +10,47 @@ const CarouselView = ({ photos, currentPhoto, handleClick }) => (
     </div>
     <div className="main-content-container">
       <div className="main-photo-nav-container">
-        <button type="button" name="back" onClick={e => handleClick(e)}>
-          SVG Placeholder
-        </button>
+        <div className="nav-button-container">
+          <button type="button" name="back" onClick={e => handleClick(e)}>
+            SVG Placeholder
+          </button>
+        </div>
         <div>
           <Photo photo={currentPhoto} />
         </div>
-        <button type="button" name="forward" onClick={e => handleClick(e)}>
-          SVG Placeholder
-        </button>
+        <div className="nav-button-container">
+          <button type="button" name="forward" onClick={e => handleClick(e)}>
+            SVG Placeholder
+          </button>
+        </div>
       </div>
       <figcaption>
-        <div className="fig-caption-divider">
-          <div className="photo-details">
-            <div className="photo-description">
-              {`${currentPhoto.photoNum}/${photos.length}: ${currentPhoto.description}`}
-            </div>
-            <div>
-              <button type="button">
-                Hide photo list
-              </button>
+        <div className="fig-caption-space">
+          <div className="fig-caption-top">
+            <div className="photo-details">
+              <div className="photo-description">
+                {`${currentPhoto.photoNum}/${photos.length}: ${currentPhoto.description}`}
+              </div>
+              <div>
+                <button type="button">
+                  <span>
+                    Hide photo list
+                    insert svg
+                  </span>
+                </button>
+              </div>
             </div>
           </div>
-
+          <div className="thumbnail-view-container">
+            <ul className="thumbnail-view">
+              {photos.map(photo => (
+                <li key={photo.photoNum}>
+                  <Photo photo={photo} handleClick={handleClick} />
+                </li>
+              ))}
+            </ul>
+          </div>
         </div>
-        <ul className="thumbnail-view">
-          {photos.map(photo => (
-            <li>
-              <Photo key={photo.photoNum} photo={photo} handleClick={handleClick} />
-            </li>
-          ))}
-        </ul>
       </figcaption>
     </div>
   </div>
