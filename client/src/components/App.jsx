@@ -51,7 +51,9 @@ class App extends React.Component {
       const { name } = e.target;
       if (name === 'return') {
         document.body.style.backgroundColor = 'white';
-        this.setState(prevState => ({ showCarousel: !prevState.showCarousel }));
+        this.setState({
+          showCarousel: false,
+        });
       } else {
         const currentPhotoIdx = currentPhoto.photoNum - 1;
         if (name === 'back' && currentPhotoIdx > 0) {
@@ -67,7 +69,6 @@ class App extends React.Component {
         }
       }
     }
-    
   }
 
   shiftThumbnails(prevPhotoIdx) {
