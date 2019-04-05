@@ -119,14 +119,12 @@ figcaption {
   overflow: hidden;
 }
 
-.thumbnail-view {
+.thumbnail-wrapper {
   display: flex;
   flex-direction: row;
   align-content: space-between;
-  transform: matrix(1, 0, 0, 1, 0, 0);
   transition-delay: 0s, 0s, 0s;
   transition-duration: 0.3s, 0.3s, 0.3s;
-  transition-property: transform;
   transition-timing-function: ease-out, ease-out, ease-out;
   
 }

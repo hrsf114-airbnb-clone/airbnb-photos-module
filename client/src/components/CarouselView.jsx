@@ -1,7 +1,8 @@
 import React from 'react';
 import Photo from './Photo.jsx';
+import ImageSlider from './ImageSlider.jsx'
 
-const CarouselView = ({ photos, currentPhoto, handleClick }) => (
+const CarouselView = ({ photos, currentPhoto, handleClick, translateValue }) => (
   <div className="carousel-page-container">
     <div className="return-container">
       <button type="button" name="return" onClick={e => handleClick(e)}>
@@ -42,13 +43,7 @@ const CarouselView = ({ photos, currentPhoto, handleClick }) => (
             </div>
           </div>
           <div className="thumbnail-view-container">
-            <ul className="thumbnail-view">
-              {photos.map(photo => (
-                <li key={photo.photoNum}>
-                  <Photo photo={photo} handleClick={handleClick} />
-                </li>
-              ))}
-            </ul>
+            <ImageSlider photos={photos} handleClick={handleClick} translateValue={translateValue} />
           </div>
         </div>
       </figcaption>
