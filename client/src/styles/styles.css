@@ -90,7 +90,7 @@ button:hover {
   cursor: pointer;
 }
 
-figcaption {
+.caption {
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -99,13 +99,13 @@ figcaption {
   align-self: center;
 }
 
-.fig-caption-space {
+.caption-space {
   margin-bottom: 24px;
   display: flex;
   flex-direction: column;
 }
 
-.fig-caption-top {
+.caption-top {
   margin-bottom: 12px;
 }
 
@@ -116,6 +116,8 @@ figcaption {
 }
 
 .thumbnail-view-container {
+  display: flex;
+  justify-content: center;
   overflow: hidden;
 }
 

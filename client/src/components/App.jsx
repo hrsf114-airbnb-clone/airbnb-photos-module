@@ -29,7 +29,7 @@ class App extends React.Component {
           photos: response,
           currentPhoto: response[0],
           hasMounted: true,
-          translateValue: (response.length / 2) * 40,
+          translateValue: (response.length / 2) * 110,
         });
       });
   }
@@ -43,10 +43,10 @@ class App extends React.Component {
       });
     }
     if (!e) {
-      const prevPhotoIdx = currentPhoto.photoNum - 1;
+      const currentPhotoIdx = photo.photoNum - 1;
       this.setState({
         currentPhoto: photo,
-      }, () => this.shiftThumbnails(prevPhotoIdx));
+      }, () => this.shiftThumbnails(currentPhotoIdx));
     } else {
       const { name } = e.target;
       if (name === 'return') {
@@ -60,32 +60,44 @@ class App extends React.Component {
           const newPhoto = photos[currentPhotoIdx - 1];
           this.setState({
             currentPhoto: newPhoto,
-          });
+          }, () => this.shiftThumbnails(currentPhotoIdx));
+        } else if (name === 'back' && currentPhotoIdx === 0) {
+          const newPhoto = photos[photos.length - 1];
+          this.setState({
+            currentPhoto: newPhoto,
+          }, () => this.shiftThumbnails(currentPhotoIdx));
         } else if (name === 'forward' && currentPhotoIdx < photos.length - 1) {
           const newPhoto = photos[currentPhotoIdx + 1];
           this.setState({
             currentPhoto: newPhoto,
-          });
+          }, () => this.shiftThumbnails(currentPhotoIdx));
+        } else if (name === 'forward' && currentPhotoIdx === photos.length - 1) {
+          const newPhoto = photos[0];
+          this.setState({
+            currentPhoto: newPhoto,
+          }, () => this.shiftThumbnails(currentPhotoIdx));
         }
       }
     }
   }
 
-  shiftThumbnails(prevPhotoIdx) {
-    const { currentPhoto } = this.state;
-    const currentPhotoIdx = currentPhoto.photoNum - 1;
+  shiftThumbnails(currentPhotoIdx) {
 
-    if (prevPhotoIdx < currentPhotoIdx) {
-      this.setState(prevState => ({
-        translateValue: prevState.translateValue - (40 * (currentPhotoIdx - prevPhotoIdx)),
-      }));
-    }
+    this.setState({
+      translateValue: 110*currentPhotoIdx
+    })
+    // const { translateValue } = this.state;
+    // if (prevPhotoIdx < currentPhotoIdx) {
+    //   this.setState(prevState => ({
+    //     translateValue: prevState.translateValue + (110 * (currentPhotoIdx - prevPhotoIdx)),
+    //   }));
+    // }
 
-    if (prevPhotoIdx > currentPhotoIdx) {
-      this.setState(prevState => ({
-        translateValue: prevState.translateValue + (40 * (prevPhotoIdx - currentPhotoIdx)),
-      }));
-    }
+    // if (prevPhotoIdx > currentPhotoIdx) {
+    //   this.setState(prevState => ({
+    //     translateValue: prevState.translateValue - (110 * (prevPhotoIdx - currentPhotoIdx)),
+    //   }));
+    // }
 
   }
 

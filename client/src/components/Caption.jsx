@@ -1,0 +1,29 @@
+import React from 'react';
+import ImageSlider from './ImageSlider.jsx';
+
+const Caption = ({ photos, currentPhoto, handleClick, translateValue }) => (
+  <div className="caption">
+    <div className="caption-space">
+      <div className="caption-top">
+        <div className="photo-details">
+          <div className="photo-description">
+            {`${currentPhoto.photoNum}/${photos.length}: ${currentPhoto.description}`}
+          </div>
+          <div>
+            <button type="button">
+              <span>
+                Hide photo list
+                insert svg
+              </span>
+            </button>
+          </div>
+        </div>
+      </div>
+      <div className="thumbnail-view-container">
+        <ImageSlider photos={photos} handleClick={handleClick} translateValue={translateValue} />
+      </div>
+    </div>
+  </div>
+);
+
+export default Caption;
