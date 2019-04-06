@@ -30,7 +30,6 @@ class App extends React.Component {
           photos: response,
           currentPhoto: response[0],
           hasMounted: true,
-          translateValue: (response.length / 2) * 110,
         });
       });
   }
@@ -44,12 +43,12 @@ class App extends React.Component {
       });
     }
     if (!e) {
-      const currentPhotoIdx = photo.photoNum - 1;
       this.setState({
         currentPhoto: photo,
-      }, () => this.shiftThumbnails(currentPhotoIdx));
+      }, () => this.shiftThumbnails());
     } else {
       const { name } = e.target;
+      
       if (name === 'return') {
         document.body.style.backgroundColor = 'white';
         this.setState({
@@ -57,60 +56,77 @@ class App extends React.Component {
         });
       } else {
         const currentPhotoIdx = currentPhoto.photoNum - 1;
+       
         if (name === 'back' && currentPhotoIdx > 0) {
           const newPhoto = photos[currentPhotoIdx - 1];
           this.setState({
             currentPhoto: newPhoto,
-          }, () => this.shiftThumbnails(currentPhotoIdx));
+          }, () => this.shiftThumbnails());
         } else if (name === 'back' && currentPhotoIdx === 0) {
           const newPhoto = photos[photos.length - 1];
           this.setState({
             currentPhoto: newPhoto,
-          }, () => this.shiftThumbnails(currentPhotoIdx));
+          }, () => this.shiftThumbnails());
         } else if (name === 'forward' && currentPhotoIdx < photos.length - 1) {
           const newPhoto = photos[currentPhotoIdx + 1];
           this.setState({
             currentPhoto: newPhoto,
-          }, () => this.shiftThumbnails(currentPhotoIdx));
+          }, () => this.shiftThumbnails());
         } else if (name === 'forward' && currentPhotoIdx === photos.length - 1) {
           const newPhoto = photos[0];
           this.setState({
             currentPhoto: newPhoto,
-          }, () => this.shiftThumbnails(currentPhotoIdx));
-        } else if (name === 'toggleImageSlider') {
+          }, () => this.shiftThumbnails());
+        }
+
+        if (name === 'toggleImageSlider') {
           this.setState(prevState => ({ showImageSlider: !prevState.showImageSlider }));
         }
       }
     }
   }
 
-  shiftThumbnails(currentPhotoIdx) {
-
-    this.setState({
-      translateValue: 110*currentPhotoIdx
-    })
-    // const { translateValue } = this.state;
-    // if (prevPhotoIdx < currentPhotoIdx) {
-    //   this.setState(prevState => ({
-    //     translateValue: prevState.translateValue + (110 * (currentPhotoIdx - prevPhotoIdx)),
-    //   }));
-    // }
-
-    // if (prevPhotoIdx > currentPhotoIdx) {
-    //   this.setState(prevState => ({
-    //     translateValue: prevState.translateValue - (110 * (prevPhotoIdx - currentPhotoIdx)),
-    //   }));
-    // }
-
+  shiftThumbnails() {
+    const { currentPhoto } = this.state;
+    if (currentPhoto.photoNum <= 8) {
+      this.setState({
+        translateValue: 0,
+      });
+    } else {
+      this.setState({
+        translateValue: -110 * (currentPhoto.photoNum - 8),
+      });
+    }
   }
 
   renderView() {
-    const { photos, hasMounted, showCarousel, currentPhoto, translateValue, showImageSlider } = this.state;
+    const {
+      photos,
+      hasMounted,
+      showCarousel,
+      currentPhoto,
+      translateValue,
+      showImageSlider,
+    } = this.state;
     if (hasMounted) {
       if (!showCarousel) {
-        return <MainView photos={photos} handleClick={this.handleClick} showCarousel={showCarousel} />;
+        return (
+          <MainView
+            photos={photos}
+            handleClick={this.handleClick}
+            showCarousel={showCarousel}
+          />
+        );
       }
-      return <CarouselView photos={photos} currentPhoto={currentPhoto} handleClick={this.handleClick} translateValue={translateValue} showImageSlider={showImageSlider} />;
+      return (
+        <CarouselView
+          photos={photos}
+          currentPhoto={currentPhoto}
+          handleClick={this.handleClick}
+          translateValue={translateValue}
+          showImageSlider={showImageSlider}
+        />
+      );
     }
     return 'Loading';
   }

@@ -121,7 +121,6 @@ button:hover {
 
 .thumbnail-view-container {
   display: flex;
-  justify-content: center;
   overflow: hidden;
 }
 
@@ -135,13 +134,13 @@ button:hover {
   transition: height 0.3s linear;
 }
 
-.thumbnail-wrapper {
+ul.thumbnail-wrapper {
   display: flex;
   flex-direction: row;
-  align-content: space-between;
   transition-delay: 0s, 0s, 0s;
   transition-duration: 0.3s, 0.3s, 0.3s;
   transition-timing-function: ease-out, ease-out, ease-out;
+  padding: 0;
   
 }
 
@@ -149,7 +148,7 @@ li {
   display: flex;
   height: 71px;
   width: 100px;
-  margin-left: 10px;
+  margin-right: 10px;
 }
 
 button {
