@@ -125,6 +125,16 @@ button:hover {
   overflow: hidden;
 }
 
+.open {
+  height: 200px;
+  transition: height 0.3s linear;
+}
+
+.hidden {
+  height: 0px;
+  transition: height 0.3s linear;
+}
+
 .thumbnail-wrapper {
   display: flex;
   flex-direction: row;
@@ -168,12 +178,7 @@ img.forward {
   padding: 10px;
 }
 
-button.toggleImageSlider {
-  display: flex;
-  align-items: center;
-}
-img.down,
-img.up {
+img.toggle {
   width: 10px;
   height: 10px;
   filter: invert(100%);
