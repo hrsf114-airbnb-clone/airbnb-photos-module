@@ -105,9 +105,9 @@ class App extends React.Component {
     const { photos, hasMounted, showCarousel, currentPhoto, translateValue } = this.state;
     if (hasMounted) {
       if (!showCarousel) {
-        return <MainView photos={photos} handleClick={this.handleClick} />;
+        return <MainView photos={photos} handleClick={this.handleClick} showCarousel={showCarousel} />;
       }
-      return <CarouselView photos={photos} currentPhoto={currentPhoto} handleClick={this.handleClick} translateValue={translateValue} />;
+      return <CarouselView photos={photos} currentPhoto={currentPhoto} handleClick={this.handleClick} translateValue={translateValue} showCarousel={showCarousel} />;
     }
     return 'Loading';
   }

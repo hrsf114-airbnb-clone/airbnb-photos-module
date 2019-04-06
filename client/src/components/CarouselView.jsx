@@ -25,7 +25,11 @@ const CarouselView = ({ photos, currentPhoto, handleClick, translateValue }) => 
           </button>
         </div>
       </div>
-      <Caption photos={photos} currentPhoto={currentPhoto} handleClick={handleClick} translateValue={translateValue} />
+      <Caption photos={photos} 
+        currentPhoto={currentPhoto}
+        handleClick={handleClick}
+        translateValue={translateValue}
+      />
     </div>
   </div>
 );
