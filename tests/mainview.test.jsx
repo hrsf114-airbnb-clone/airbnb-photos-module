@@ -13,7 +13,7 @@ describe('<MainView />', () => {
   });
 
   test('renders a container class for photos', () => {
-    expect(wrapper.find('.container')).toHaveLength(1);
+    expect(wrapper.find('.main-view-container')).toHaveLength(1);
   });
 
   test('has one main photo container', () => {
