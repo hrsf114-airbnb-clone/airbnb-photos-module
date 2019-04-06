@@ -113,6 +113,7 @@ button:hover {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
+  width: 955px;
 }
 
 .thumbnail-view-container {
@@ -149,8 +150,6 @@ button:focus {
   outline: none;
 }
 
-
-
 img.return {
   width: 30px;
   height: 30px;
@@ -166,9 +165,18 @@ img.forward {
   padding: 10px;
 }
 
-img.down {
+button.toggleImageSlider {
+  display: flex;
+  align-items: center;
+  font-family: Circular, -apple-system, BlinkMacSystemFont, Roboto, Helvetica Neue, sans-serif;
+  color: white;
+  font-size: 14px;
+}
+img.down,
+img.up {
   width: 10px;
   height: 10px;
   filter: invert(100%);
+  padding-left: 4px;
 }
 

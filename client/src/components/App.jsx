@@ -11,6 +11,7 @@ class App extends React.Component {
       hasMounted: false,
       showCarousel: false,
       translateValue: 0,
+      showImageSlider: true,
     };
     this.handleClick = this.handleClick.bind(this);
     this.shiftThumbnails = this.shiftThumbnails.bind(this);
@@ -76,6 +77,8 @@ class App extends React.Component {
           this.setState({
             currentPhoto: newPhoto,
           }, () => this.shiftThumbnails(currentPhotoIdx));
+        } else if (name === 'toggleImageSlider') {
+          this.setState(prevState => ({ showImageSlider: !prevState.showImageSlider }));
         }
       }
     }
@@ -102,12 +105,12 @@ class App extends React.Component {
   }
 
   renderView() {
-    const { photos, hasMounted, showCarousel, currentPhoto, translateValue } = this.state;
+    const { photos, hasMounted, showCarousel, currentPhoto, translateValue, showImageSlider } = this.state;
     if (hasMounted) {
       if (!showCarousel) {
         return <MainView photos={photos} handleClick={this.handleClick} showCarousel={showCarousel} />;
       }
-      return <CarouselView photos={photos} currentPhoto={currentPhoto} handleClick={this.handleClick} translateValue={translateValue} showCarousel={showCarousel} />;
+      return <CarouselView photos={photos} currentPhoto={currentPhoto} handleClick={this.handleClick} translateValue={translateValue} showImageSlider={showImageSlider} />;
     }
     return 'Loading';
   }

@@ -2,7 +2,7 @@ import React from 'react';
 import Photo from './Photo.jsx';
 import Caption from './Caption.jsx';
 
-const CarouselView = ({ photos, currentPhoto, handleClick, translateValue }) => (
+const CarouselView = ({ photos, currentPhoto, handleClick, translateValue, showImageSlider }) => (
   <div className="carousel-page-container">
     <div className="return-container">
       <button type="button" name="return" onClick={e => handleClick(e)}>
@@ -25,10 +25,12 @@ const CarouselView = ({ photos, currentPhoto, handleClick, translateValue }) => 
           </button>
         </div>
       </div>
-      <Caption photos={photos} 
+      <Caption
+        photos={photos}
         currentPhoto={currentPhoto}
         handleClick={handleClick}
         translateValue={translateValue}
+        showImageSlider={showImageSlider}
       />
     </div>
   </div>
