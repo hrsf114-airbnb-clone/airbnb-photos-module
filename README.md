@@ -1,7 +1,7 @@
 # Airbnb Photos Module
 
 - Remake of the photos components on an Airbnb listing
-- This repo contains both the photos module on a listing's landing page and a photos slideshow view
+- View a listing's first five photos on its landing page and browse all photos in a photos carousel
 
 ## Related Projects
 
@@ -44,7 +44,7 @@ An `nvmrc` file is included if using [nvm](https://github.com/creationix/nvm).
   - Continuous integration set up with [CircleCI](https://circleci.com/)
   - `npm run test` to execute tests
 
-### Installing_Dependencies
+## Installing Dependencies
 
 From within the root directory:
 
