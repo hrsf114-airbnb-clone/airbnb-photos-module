@@ -73,6 +73,7 @@ img:hover {
   padding: 10px;
   padding-bottom: 20px;
 }
+
 .main-content-container {
   display:flex;
   flex-direction: column;
@@ -83,7 +84,6 @@ img:hover {
   flex-direction: row;
   justify-content: space-between;
   align-items: stretch;
-
 }
 
 .nav-button-container {
@@ -140,8 +140,7 @@ ul.thumbnail-wrapper {
   transition-delay: 0s, 0s, 0s;
   transition-duration: 0.3s, 0.3s, 0.3s;
   transition-timing-function: ease-out, ease-out, ease-out;
-  padding: 0;
-  
+  padding: 0; 
 }
 
 li {
@@ -155,7 +154,6 @@ button {
   background-color: #262626;
   border: none;
   color: white;
-
 }
 
 button:focus {
