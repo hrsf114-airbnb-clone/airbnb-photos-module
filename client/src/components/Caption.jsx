@@ -6,10 +6,10 @@ const Caption = ({ photos, currentPhoto, handleClick, translateValue, showImageS
     <div className="caption-space">
       <div className="caption-top">
         <div className="photo-details">
-          <div>
+          <div className="caption-text">
             {`${currentPhoto.photoNum}/${photos.length}: ${currentPhoto.description}`}
           </div>
-          <button type="button" name="toggleImageSlider" onClick={e => handleClick(e)}>
+          <button type="button" className="toggleImageSlider" name="toggleImageSlider" onClick={e => handleClick(e)}>
             {showImageSlider ? "Hide photo list" : "Show photo list"} 
             {showImageSlider
               ? <img className="toggle" name="toggleImageSlider" src="./images/down-arrow.svg" alt="hide-nav" />
