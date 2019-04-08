@@ -12,8 +12,8 @@ const Caption = ({ photos, currentPhoto, handleClick, translateValue, showImageS
           <button type="button" className="toggleImageSlider" name="toggleImageSlider" onClick={e => handleClick(e)}>
             {showImageSlider ? "Hide photo list" : "Show photo list"} 
             {showImageSlider
-              ? <img className="toggle" name="toggleImageSlider" src="./images/down-arrow.svg" alt="hide-nav" />
-              : <img className="toggle" name="toggleImageSlider" src="./images/up-arrow.svg" alt="show-nav" />
+              ? <img className="toggle" name="toggleImageSlider" src="https://s3-us-west-1.amazonaws.com/hrsf-fec/svg/down-arrow.svg" alt="hide-nav" />
+              : <img className="toggle" name="toggleImageSlider" src="https://s3-us-west-1.amazonaws.com/hrsf-fec/svg/up-arrow.svg" alt="show-nav" />
               }
           </button>
         </div>
