@@ -1,6 +1,6 @@
 import React from 'react';
 import { shallow } from 'enzyme';
-import Photo from '../client/src/components/Photo';
+import Photo from '../client/src/components/Photo.jsx';
 import photos from './__mocks__/photos.js';
 
 describe('<Photo />', () => {

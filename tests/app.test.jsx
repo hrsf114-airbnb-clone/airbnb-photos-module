@@ -1,32 +1,57 @@
 import React from 'react';
 import { shallow } from 'enzyme';
-import App from '../client/src/components/App';
-import Photo from '../client/src/components/Photo';
+import App from '../client/src/components/App.jsx';
 import photos from './__mocks__/photos.js';
 
 
 describe('<App />', () => {
   const wrapper = shallow(<App />);
-  wrapper.setState({ photos, hasMounted: true });
+  wrapper.setState(
+    {
+      photos,
+      hasMounted: true,
+      currentPhoto: photos[0],
+      showCarousel: true,
+      translateValue: Math.random() * 10,
+    },
+  );
 
   test('photo order is preserved in state', () => {
     expect(wrapper.state().photos[0].photoNum).toBe(1);
   });
 
-  test('renders 5 < Photo /> components', () => {
-    expect(wrapper.find(Photo)).toHaveLength(5);
+  test('shiftThumbnails() updates translateValue state', () => {
+    const shiftThumbnails = () => {
+      const currentPhoto = wrapper.state('currentPhoto');
+      if (currentPhoto.photoNum <= 8) {
+        wrapper.setState({
+          translateValue: 0,
+        });
+      } else {
+        wrapper.setState({
+          translateValue: -110 * (currentPhoto.photoNum - 8),
+        });
+      }
+    };
+    shiftThumbnails();
+    expect(wrapper.state('translateValue')).toEqual(0);
   });
 
-  test('renders a container class for photos', () => {
-    expect(wrapper.find('.container')).toHaveLength(1);
+  test('handleClick() updates showCarousel state', () => {
+    const e = {
+      target: {
+        name: 'return',
+      },
+    };
+    const handleClick = (event, photo) => {
+      const { name } = event.target;
+      if (name) {
+        wrapper.setState({
+          showCarousel: false,
+        });
+      }
+    };
+    handleClick(e);
+    expect(wrapper.state('showCarousel')).toEqual(false);
   });
-
-  test('has one main photo container', () => {
-    expect(wrapper.find('.left')).toHaveLength(1);
-  });
-
-  test('has two secondary photo containers', () => {
-    expect(wrapper.find('.right')).toHaveLength(2);
-  });
-
 });

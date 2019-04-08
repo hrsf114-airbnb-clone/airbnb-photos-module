@@ -1,15 +1,20 @@
 import React, { Fragment } from 'react';
-import Photo from './Photo.jsx';
+import MainView from './MainView.jsx';
+import CarouselView from './CarouselView.jsx';
 
 class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      currentRoom: null,
       photos: [],
-      view: 'main',
+      currentPhoto: null,
       hasMounted: false,
+      showCarousel: false,
+      translateValue: 0,
+      showImageSlider: true,
     };
+    this.handleClick = this.handleClick.bind(this);
+    this.shiftThumbnails = this.shiftThumbnails.bind(this);
   }
 
   componentDidMount() {
@@ -17,57 +22,111 @@ class App extends React.Component {
   }
 
   fetchPhotos() {
-    const photosUri = `../../api${window.location.pathname}`;
+    const photosUri = `/api${window.location.pathname}`;
     fetch(photosUri)
       .then(response => response.json())
       .then((response) => {
         this.setState({
           photos: response,
+          currentPhoto: response[0],
           hasMounted: true,
         });
       });
   }
 
-  renderView() {
-    const { photos, hasMounted } = this.state;
+  handleClick(e, photo) {
+    const { showCarousel, currentPhoto, photos } = this.state;
+    if (!showCarousel) {
+      document.body.style.backgroundColor = '#262626';
+      this.setState({
+        showCarousel: true,
+      });
+    }
+    if (!e) {
+      this.setState({
+        currentPhoto: photo,
+      }, () => this.shiftThumbnails());
+    } else {
+      const { name } = e.target;
+      
+      if (name === 'return') {
+        document.body.style.backgroundColor = 'white';
+        this.setState({
+          showCarousel: false,
+        });
+      } else {
+        const currentPhotoIdx = currentPhoto.photoNum - 1;
+       
+        if (name === 'back' && currentPhotoIdx > 0) {
+          const newPhoto = photos[currentPhotoIdx - 1];
+          this.setState({
+            currentPhoto: newPhoto,
+          }, () => this.shiftThumbnails());
+        } else if (name === 'back' && currentPhotoIdx === 0) {
+          const newPhoto = photos[photos.length - 1];
+          this.setState({
+            currentPhoto: newPhoto,
+          }, () => this.shiftThumbnails());
+        } else if (name === 'forward' && currentPhotoIdx < photos.length - 1) {
+          const newPhoto = photos[currentPhotoIdx + 1];
+          this.setState({
+            currentPhoto: newPhoto,
+          }, () => this.shiftThumbnails());
+        } else if (name === 'forward' && currentPhotoIdx === photos.length - 1) {
+          const newPhoto = photos[0];
+          this.setState({
+            currentPhoto: newPhoto,
+          }, () => this.shiftThumbnails());
+        }
 
+        if (name === 'toggleImageSlider') {
+          this.setState(prevState => ({ showImageSlider: !prevState.showImageSlider }));
+        }
+      }
+    }
+  }
+
+  shiftThumbnails() {
+    const { currentPhoto } = this.state;
+    if (currentPhoto.photoNum <= 8) {
+      this.setState({
+        translateValue: 0,
+      });
+    } else {
+      this.setState({
+        translateValue: -110 * (currentPhoto.photoNum - 8),
+      });
+    }
+  }
+
+  renderView() {
+    const {
+      photos,
+      hasMounted,
+      showCarousel,
+      currentPhoto,
+      translateValue,
+      showImageSlider,
+    } = this.state;
     if (hasMounted) {
-      if (photos.length >= 4) {
+      if (!showCarousel) {
         return (
-          <div className="container">
-            <div className="left">
-              <Photo photo={photos[0]} />
-            </div>
-            <div className="right">
-              {photos.slice(1, 3).map(photo => <Photo key={photo.photoNum} photo={photo} />)}
-            </div>
-            <div className="right">
-              {photos.slice(3, 5).map(photo => <Photo key={photo.photoNum} photo={photo} />)}
-            </div>
-          </div>
+          <MainView
+            photos={photos}
+            handleClick={this.handleClick}
+            showCarousel={showCarousel}
+          />
         );
       }
-      if (photos.length >= 2) {
-        return (
-          <div className="container">
-            <div className="left">
-              <Photo photo={photos[0]} />
-            </div>
-            <div className="right">
-              {photos.slice(1, 3).map(photo => <Photo key={photo.photoNum} photo={photo} />)}
-            </div>
-          </div>
-        );
-      }
-      if (photos.length === 1) {
-        return (
-          <div className="container">
-            <div className="left">
-              <Photo photo={photos[0]} />
-            </div>
-          </div>
-        );
-      }
+      return (
+        <CarouselView
+          photos={photos}
+          currentPhoto={currentPhoto}
+          handleClick={this.handleClick}
+          translateValue={translateValue}
+          showImageSlider={showImageSlider}
+        />
+      );
     }
     return 'Loading';
   }
