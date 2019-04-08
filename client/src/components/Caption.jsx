@@ -1,9 +1,9 @@
 import React from 'react';
 import ImageSlider from './ImageSlider.jsx';
 
-const Caption = ({ photos, currentPhoto, handleClick, translateValue, showImageSlider}) => (
+const Caption = ({ photos, currentPhoto, handleClick, translateValue, showImageSlider }) => (
   <div className="caption">
-    <div className="caption-space">
+    <div className="caption-space" style={showImageSlider ? { transform: 'translateY(0px)' } : { transform: 'translateY(67px)' }}>
       <div className="caption-top">
         <div className="photo-details">
           <div className="caption-text">
