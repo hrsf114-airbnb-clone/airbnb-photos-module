@@ -1,5 +1,6 @@
 const express = require('express');
 const morgan = require('morgan');
+const path = require('path');
 const model = require('../database/models/Room.js');
 
 const app = express();
@@ -9,6 +10,8 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
 app.use('/rooms/:id', express.static('client/dist'));
+app.use(express.static('client/dist'));
+
 
 app.get('/api/rooms/:id', (req, res) => {
   const { id } = req.params;
