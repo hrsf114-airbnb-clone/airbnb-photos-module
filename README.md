@@ -1,7 +1,7 @@
 # Airbnb Photos Module
 
-> Remake of the photos components on an Airbnb listing
-> This repo contains both the photos module on a listing's landing page and a photos slideshow view
+- Remake of the photos components on an Airbnb listing
+- View a listing's first five photos on its landing page and browse all photos in a photos carousel
 
 ## Related Projects
 
@@ -9,10 +9,10 @@
 
 ## Table of Contents
 
-1. [Usage](#Usage)
-1. [Requirements](#Requirements)
-1. [Development](#Development)
-1. [Installing Dependencies](#Installing_Dependencies)
+1. Usage
+1. Requirements
+1. Development
+1. Installing Dependencies
 
 ## Usage
 
@@ -32,21 +32,19 @@ An `nvmrc` file is included if using [nvm](https://github.com/creationix/nvm).
 - Node 6.13.0 or higher
 
 ## Development
-# Testing
-- Unit tests written in [Jest](https://jestjs.io/) and [Enzyme](https://airbnb.io/enzyme/)
-- Network request tests implemented with [supertest](https://www.npmjs.com/package/supertest)
-- Continuous integration set up with [CircleCI](https://circleci.com/)
-- `npm run test` to execute tests
-
-# Software Stack
 - Client
-  - Frontend is designed using [React](https://reactjs.org/)
+  - Frontend designed with [React](https://reactjs.org/)
 - Server
-  - App is served via an [Express](https://expressjs.com/) server
+  - App served via an [Express](https://expressjs.com/) server
 - Database
-  - Listing data is stored in a [Mongo](https://www.mongodb.com/) database, accessed via[Mongoose](https://mongoosejs.com/)
+  - Listing/Photo data stored in a [Mongo](https://www.mongodb.com/) database, accessed via [Mongoose](https://mongoosejs.com/)
+- Testing
+  - Unit tests written in [Jest](https://jestjs.io/) and [Enzyme](https://airbnb.io/enzyme/)
+  - Network request tests implemented with [supertest](https://www.npmjs.com/package/supertest)
+  - Continuous integration set up with [CircleCI](https://circleci.com/)
+  - `npm run test` to execute tests
 
-### Installing_Dependencies
+## Installing Dependencies
 
 From within the root directory:
 
