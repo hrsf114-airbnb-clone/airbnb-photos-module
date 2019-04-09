@@ -4,4 +4,4 @@ import App from './components/App.jsx';
 import './styles/styles.css';
 
 
-ReactDOM.render(<App />, document.getElementById('app'));
+ReactDOM.render(<App />, document.getElementById('photos'));

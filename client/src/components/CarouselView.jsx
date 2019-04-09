@@ -17,7 +17,7 @@ const CarouselView = ({ photos, currentPhoto, handleClick, translateValue, showI
           </button>
         </div>
         <div>
-          <Photo photo={currentPhoto} />
+          <Photo photo={currentPhoto} handleClick={handleClick} />
         </div>
         <div className="nav-button-container">
           <button type="button" className="forward" name="forward" onClick={e => handleClick(e)}>

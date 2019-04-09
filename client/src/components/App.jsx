@@ -36,7 +36,11 @@ class App extends React.Component {
 
   handleClick(e, photo) {
     const { showCarousel, currentPhoto, photos } = this.state;
+    const otherServices = document.getElementById('listing-booking-container');
     if (!showCarousel) {
+      if (otherServices) {
+        otherServices.style.display = 'none';
+      }
       document.body.style.backgroundColor = '#262626';
       this.setState({
         showCarousel: true,
@@ -51,6 +55,9 @@ class App extends React.Component {
       
       if (name === 'return') {
         document.body.style.backgroundColor = 'white';
+        if (otherServices) {
+          otherServices.style.display = 'flex';
+        }
         this.setState({
           showCarousel: false,
         });
