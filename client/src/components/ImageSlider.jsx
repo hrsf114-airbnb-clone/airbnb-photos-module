@@ -9,7 +9,7 @@ const ImageSlider = ({ photos, translateValue, handleClick }) => (
     }}
   >
     {photos.map(photo => (
-      <li key={photo.photoNum}>
+      <li className="photo-list-item" key={photo.photoNum}>
         <Photo photo={photo} handleClick={handleClick} />
       </li>
     ))}
