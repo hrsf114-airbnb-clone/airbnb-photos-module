@@ -13,7 +13,7 @@ app.use('/rooms/:id', express.static('client/dist'));
 app.use(express.static('client/dist'));
 
 
-app.get('/api/rooms/:id', (req, res) => {
+app.get('/api/photos/:id', (req, res) => {
   const { id } = req.params;
   model.getRoomPhotos(id, (error, results) => {
     if (results.length === 0 || error) {
