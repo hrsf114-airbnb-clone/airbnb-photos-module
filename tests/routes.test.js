@@ -11,7 +11,7 @@ describe('request response cycle', () => {
   test('GET /api/rooms headers', (done) => {
     const roomNum = Math.floor(Math.random() * 100) + 1;
     request(app)
-      .get(`/api/rooms/${roomNum}`)
+      .get(`/api/photos/${roomNum}`)
       .then((response) => {
         expect(response.status).toEqual(200);
         expect(response.type).toEqual('application/json');
@@ -22,7 +22,7 @@ describe('request response cycle', () => {
   test('GET /api/rooms body', (done) => {
     const roomNum = Math.floor(Math.random() * 100) + 1;
     request(app)
-      .get(`/api/rooms/${roomNum}`)
+      .get(`/api/photos/${roomNum}`)
       .then((response) => {
         expect(response.body[0]).toHaveProperty('roomNum');
         expect(response.body[0]).toHaveProperty('photoNum');
