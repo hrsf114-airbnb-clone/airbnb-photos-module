@@ -22,7 +22,8 @@ class App extends React.Component {
   }
 
   fetchPhotos() {
-    const photosUri = `/api${window.location.pathname}`;
+    const roomNum = window.location.pathname.split('/').filter(el => !!el).pop();
+    const photosUri = `/api/photos/${roomNum}`;
     fetch(photosUri)
       .then(response => response.json())
       .then((response) => {

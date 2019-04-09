@@ -8,6 +8,6 @@ configure({ adapter: new Adapter() });
 global.fetch = fetch;
 global.window = {
   location: {
-    pathName: '/rooms/42',
+    pathname: '/rooms/42',
   },
 };
