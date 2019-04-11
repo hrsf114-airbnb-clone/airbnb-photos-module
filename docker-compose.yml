@@ -1,0 +1,18 @@
+version: '3'
+
+services:
+  photos:
+    build: ./
+    depends_on:
+      - 'database'
+    ports:
+      - '3001:3001'
+  
+  seed:
+    build: ./
+    depends_on:
+      - 'database'
+    command: sh -c 'npm run seed'
+
+  database:
+    image: mongo:latest
