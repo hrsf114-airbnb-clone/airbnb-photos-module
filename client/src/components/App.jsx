@@ -57,7 +57,7 @@ class App extends React.Component {
       if (name === 'return') {
         document.body.style.backgroundColor = 'white';
         if (otherServices) {
-          otherServices.style.display = 'flex';
+          otherServices.style.display = 'block';
         }
         this.setState({
           showCarousel: false,
