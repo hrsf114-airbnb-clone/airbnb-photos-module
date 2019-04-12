@@ -7,12 +7,13 @@ services:
       - 'database'
     ports:
       - '3001:3001'
-  
-  seed:
-    build: ./
-    depends_on:
-      - 'database'
-    command: sh -c 'npm run seed'
+    
+  # to seed with a separate container, uncomment below and change dockerfile CMD script to ["npm", "run", "start"]
+  # seed:
+  #   build: ./
+  #   depends_on:
+  #     - 'database'
+  #   command: sh -c 'npm run seed'
 
   database:
     image: mongo:latest

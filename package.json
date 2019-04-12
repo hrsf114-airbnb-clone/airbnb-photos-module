@@ -5,6 +5,7 @@
   "author": "Evan Kaplan",
   "license": "",
   "scripts": {
+    "start-docker": "node database/seed/seed.js & node server/index.js",
     "start": "node server/index.js",
     "start-dev": "nodemon server/index.js",
     "seed": "node database/seed/seed.js",
