@@ -9,7 +9,6 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
 app.use('/rooms/:id', express.static('client/dist'));
-app.use('/bundle.js', express.static('client/dist'));
 
 app.get('/api/photos/:id', (req, res) => {
   const { id } = req.params;
