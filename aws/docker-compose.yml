@@ -3,14 +3,14 @@ version: '3'
 
 services:
   photos:
-    image: evanskaplan/airbnb_photos:v3
+    image: evanskaplan/airbnb_photos:v4
     depends_on:
       - 'database'
     ports:
       - '80:3001'
 
   seed:
-    image: evanskaplan/airbnb_photos:v3
+    image: evanskaplan/airbnb_photos:v4
     depends_on:
       - 'database'
     command: sh -c 'npm run seed'
