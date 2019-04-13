@@ -1,19 +1,19 @@
+# template for the docker-compose file used on an ec2 instance
 version: '3'
 
 services:
   photos:
-    build: ./
+    image: evanskaplan/airbnb_photos:v3
     depends_on:
       - 'database'
     ports:
-      - '3001:3001'
-    
-  # to seed with a separate container, uncomment below and change dockerfile CMD script to ["npm", "run", "start"]
+      - '80:3001'
+
   seed:
-    build: ./
+    image: evanskaplan/airbnb_photos:v3
     depends_on:
       - 'database'
     command: sh -c 'npm run seed'
-
+  
   database:
     image: mongo:latest
