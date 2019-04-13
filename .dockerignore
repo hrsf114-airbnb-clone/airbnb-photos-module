@@ -1,2 +1,6 @@
+## node ##
 node_modules
 npm-debug.log
+
+## S3 Keys ##
+s3-keys.json

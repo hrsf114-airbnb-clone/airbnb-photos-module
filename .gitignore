@@ -11,3 +11,6 @@ tests/coverage
 
 ## Seed Data ##
 database/seed/seedPhotos
+
+## S3 Keys ##
+s3-keys.json
