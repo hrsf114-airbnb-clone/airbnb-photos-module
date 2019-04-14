@@ -22,16 +22,13 @@
 - Set up with Docker
   - Find this module's image on DockerHub at evanskaplan/airbnb_photos_v4
   - To start the app run `docker run -d -p 80:3001 evanskaplan/airbnb_photos:v4`
-  - Navigative to localhost/rooms/room_id where room_id is a number between 1-100
   
 - Set up with NPM
   - `npm run seed` to populate your database
   - `npm run react-dev` to compile the webpack bundle
   - `npm start` to start your server (set up to run on port 3001)
- - Navigate to a listing
-  - This app handles requests for a specific listing's page e.g. http://localhost:3001/rooms/42/
-  - There are 100 listings in this app; change the url parameter after rooms to navigate to another listing
-  - Click on a photo in a listing to navigate to the photos carousel view
+  
+Note: There are 100 listings in this app; change the url parameter after rooms to navigate to another listing. Click on a photo in a listing to navigate to the photos carousel view. Example listing url: http://localhost:3001/rooms/42/
 
 ## Requirements
 
