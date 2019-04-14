@@ -1,7 +1,11 @@
 # Airbnb Photos Module
 
-- Remake of the photos components on an Airbnb listing
-- View a listing's first five photos on its landing page and browse all photos in a photos carousel
+- Remake of the Airbnb listing photos components, dockerized and hosted on Amazon EC2
+- Access the service in production [here](http://ec2-54-215-239-201.us-west-1.compute.amazonaws.com/rooms/14/)
+- Access the docker image [here](https://hub.docker.com/r/evanskaplan/airbnb_photos/tags)
+- Note: this module is one microservice of an SOA designed web app
+  - Check out the full app on EC2 [here](http://ec2-13-52-187-113.us-west-1.compute.amazonaws.com/rooms/14/)
+  - Check out the app proxy on Github [here](https://github.com/hrsf114-airbnb-clone/airbnb-proxy-evan) and on DockerHub [here](https://hub.docker.com/r/evanskaplan/airbnb_proxy/tags)
 
 ## Related Projects
 
@@ -15,13 +19,17 @@
 1. Installing Dependencies
 
 ## Usage
-
-- Set up
+- Set up with Docker
+  - Find this module's image on DockerHub at evanskaplan/airbnb_photos_v4
+  - To start the app run `docker run -d -p 80:3001 evanskaplan/airbnb_photos:v4`
+  - Navigative to localhost/rooms/room_id where room_id is a number between 1-100
+  
+- Set up with NPM
   - `npm run seed` to populate your database
   - `npm run react-dev` to compile the webpack bundle
-  - `npm start` to start your server (set up to run on port 3000)
-- Navigate to a listing
-  - This app handles requests for a specific listing's page e.g. http://localhost:3000/rooms/42/
+  - `npm start` to start your server (set up to run on port 3001)
+ - Navigate to a listing
+  - This app handles requests for a specific listing's page e.g. http://localhost:3001/rooms/42/
   - There are 100 listings in this app; change the url parameter after rooms to navigate to another listing
   - Click on a photo in a listing to navigate to the photos carousel view
 
