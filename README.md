@@ -51,7 +51,10 @@ An `nvmrc` file is included if using [nvm](https://github.com/creationix/nvm).
   - Network request tests implemented with [supertest](https://www.npmjs.com/package/supertest)
   - Continuous integration set up with [CircleCI](https://circleci.com/)
   - `npm run test` to execute tests
-
+- Container
+  - Containerized with [Docker](https://www.docker.com/)
+- Hosting
+  - Hosted on [Amazon EC2](https://aws.amazon.com/ec2/) and [Amazon S3](https://aws.amazon.com/s3/)
 ## Installing Dependencies
 
 From within the root directory:
