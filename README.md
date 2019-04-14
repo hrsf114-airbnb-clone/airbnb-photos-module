@@ -22,7 +22,6 @@
 #### Set up with Docker
 - Create a docker-compose.yml file in the root directory and copy in the contents below
  ```sh
- # 
  version: '3'
 
 services:
