@@ -1,6 +1,6 @@
 # Airbnb Photos Module
 
-- Remake of the Airbnb listing photos components, dockerized and hosted on Amazon EC2
+- Photo slideshow app built on the MERN stack, dockerized and hosted on Amazon EC2
 - Access the service in production [here](http://ec2-54-215-239-201.us-west-1.compute.amazonaws.com/rooms/14/)
 - Access the docker image [here](https://hub.docker.com/r/evanskaplan/airbnb_photos/tags)
 - Note: this module is one microservice of an SOA designed web app
@@ -19,13 +19,35 @@
 1. Installing Dependencies
 
 ## Usage
-- Set up with Docker
-  - `docker run -d -p 80:3001 evanskaplan/airbnb_photos:v4`
+#### Set up with Docker
+- Create a docker-compose.yml file in the root directory and copy in the contents below
+ ```sh
+ # 
+ version: '3'
+
+services:
+  photos:
+    image: evanskaplan/airbnb_photos:v4
+    depends_on:
+      - 'database'
+    ports:
+      - '80:3001'
+
+  seed:
+    image: evanskaplan/airbnb_photos:v4
+    depends_on:
+      - 'database'
+    command: sh -c 'npm run seed'
+
+  database:
+    image: mongo:latest
+ ```
+ - run `docker-compose up -d` to start the app
   
-- Set up with NPM
-  - `npm run seed` to populate your database
-  - `npm run react-dev` to compile the webpack bundle
-  - `npm start` to start your server (set up to run on port 3001)
+#### Set up with NPM
+ - `npm run seed` to populate your database
+ - `npm run react-dev` to compile the webpack bundle
+ - `npm start` to start your server (set up to run on port 3001)
   
 Note: There are 100 listings in this app. Change the url parameter after rooms to navigate to another listing. Click on a photo in a listing to navigate to the photos carousel view. Example listing url: http://localhost:3001/rooms/42/
 
