@@ -1,11 +1,8 @@
 # VacationStay Photos Module
 
-- Photo modules for the listing page of a vacation rental app built on the MERN stack, dockerized and hosted on Amazon EC2
-- Access the service in production [here](http://ec2-54-215-239-201.us-west-1.compute.amazonaws.com/rooms/14/)
+- Photos service for the listing page of a vacation rental app built on the MERN stack, dockerized and hosted on Amazon EC2
 - Access the docker image [here](https://hub.docker.com/r/evanskaplan/airbnb_photos/tags)
-- Note: this module is one service of a three service microservice-oriented web app
-  - Check out the full app on EC2 [here](http://ec2-13-52-187-113.us-west-1.compute.amazonaws.com/rooms/14/)
-  - Check out the app proxy on Github [here](https://github.com/hrsf114-airbnb-clone/airbnb-proxy-evan) and on DockerHub [here](https://hub.docker.com/r/evanskaplan/airbnb_proxy/tags)
+- This service is part of a larger single page web app. Check out the app proxy on Github [here](https://github.com/hrsf114-airbnb-clone/airbnb-proxy-evan) and on DockerHub [here](https://hub.docker.com/r/evanskaplan/airbnb_proxy/tags)
 
 ## Related Projects
 
