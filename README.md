@@ -1,6 +1,6 @@
-# Airbnb Photos Module
+# VacationStay Photos Module
 
-- Photo slideshow app built on the MERN stack, dockerized and hosted on Amazon EC2
+- Photo modules for the listing page of a vacation rental app built on the MERN stack, dockerized and hosted on Amazon EC2
 - Access the service in production [here](http://ec2-54-215-239-201.us-west-1.compute.amazonaws.com/rooms/14/)
 - Access the docker image [here](https://hub.docker.com/r/evanskaplan/airbnb_photos/tags)
 - Note: this module is one service of a three service microservice-oriented web app
